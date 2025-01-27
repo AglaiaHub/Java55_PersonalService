@@ -5,11 +5,7 @@ import java55.PersonService.person.dto.AddressDto;
 import java55.PersonService.person.dto.PersonDto;
 import java55.PersonService.person.service.PersonService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/person")
@@ -27,8 +23,6 @@ public class PersonController {
         return personService.findPersonById(id);
     }
 
-// все оставшиеся методы, dto exceptions repository бизнес логику
-    // без Get city population
 
     @GetMapping ("/city/{city}")
     public Iterable<PersonDto> findPersonsByCity(@PathVariable String city) {

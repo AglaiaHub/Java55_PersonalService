@@ -36,15 +36,13 @@ public class PersonServiceImpl implements PersonService{
         return personRepository.findByAddressCity(city).stream()
                 .map(p -> modelMapper.map(p, PersonDto.class))
                 .toList();
-//        return null;
     }
 
     @Override
     public Iterable<PersonDto> findPersonsByAge(int from, int to) {
-//        return personRepository.findByAgeBetween(from, to).stream()
-//                .map(p -> modelMapper.map(p, PersonDto.class))
-//                .toList();
-        return null;
+        return personRepository.findByAgeBetween(from, to).stream()
+                .map(p -> modelMapper.map(p, PersonDto.class))
+                .toList();
     }
 
     @Override
@@ -60,7 +58,6 @@ public class PersonServiceImpl implements PersonService{
         return personRepository.findByNameIgnoreCase(name).stream()
                 .map(p -> modelMapper.map(p, PersonDto.class))
                 .toList();
-//        return null;
     }
 
     @Override
