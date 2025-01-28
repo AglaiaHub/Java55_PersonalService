@@ -1,6 +1,7 @@
 package java55.PersonService.person.dao;
 
 import java55.PersonService.person.dto.CityPopulationDto;
+import java55.PersonService.person.model.Employee;
 import java55.PersonService.person.model.Person;
 
 import java.util.Collection;
@@ -19,6 +20,9 @@ public interface PersonRepository extends JpaRepository<Person, Integer> {
     Collection<Person> findByAgeBetween(@Param("from") int from, @Param("to") int to);
 
     Collection <Person> findByNameIgnoreCase(String name);
+
+    @Query("SELECT p FROM Person p WHERE p.salary BETWEEN :min AND :max")
+    Collection <Employee> findBySalaryBetween(@Param("min")int min, @Param("max")int max);
 
 //    select p.city, count(*) from person as p group by p.city;
 //    @Query("select new java55.PersonService.person.dto.CityPopulationDto(p.address.city, count(p)) " +

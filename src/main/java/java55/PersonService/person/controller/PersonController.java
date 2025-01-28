@@ -1,6 +1,5 @@
 package java55.PersonService.person.controller;
 
-import jakarta.persistence.criteria.CriteriaBuilder;
 import java55.PersonService.person.dto.AddressDto;
 import java55.PersonService.person.dto.CityPopulationDto;
 import java55.PersonService.person.dto.EmployeeDto;
@@ -62,6 +61,10 @@ public class PersonController {
         return personService.removePersonById(id);
     }
 
+    @GetMapping("/salary/{min}/{max}")
+    public Iterable<EmployeeDto> findEmployeeBySalary (@PathVariable Integer min, @PathVariable Integer max){
+        return personService.findEmployeeBySalary(min, max);
+    }
     //todo
 //    @GetMapping("/salary/{min}/{max}")
 //    public Iterable<EmployeeDto> findEmployeeBySalary ()
