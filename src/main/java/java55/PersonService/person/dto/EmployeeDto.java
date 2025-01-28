@@ -1,6 +1,5 @@
 package java55.PersonService.person.dto;
 
-import java55.PersonService.person.model.Address;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

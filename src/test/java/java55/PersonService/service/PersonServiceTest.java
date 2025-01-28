@@ -61,7 +61,6 @@ public class PersonServiceTest {
 
         List<Future<Iterable<EmployeeDto>>> results = executorService.invokeAll(tasks);
 
-        // Закрываем ExecutorService и ждем завершения всех задач
         executorService.shutdown();
         executorService.awaitTermination(1, TimeUnit.MINUTES);
 

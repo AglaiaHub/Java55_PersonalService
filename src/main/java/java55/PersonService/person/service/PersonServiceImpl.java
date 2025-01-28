@@ -1,10 +1,7 @@
 package java55.PersonService.person.service;
 
 import java55.PersonService.person.dao.PersonRepository;
-import java55.PersonService.person.dto.AddressDto;
-import java55.PersonService.person.dto.CityPopulationDto;
-import java55.PersonService.person.dto.EmployeeDto;
-import java55.PersonService.person.dto.PersonDto;
+import java55.PersonService.person.dto.*;
 import java55.PersonService.person.dto.exception.PersonNotFoundException;
 import java55.PersonService.person.model.Address;
 import java55.PersonService.person.model.Child;
@@ -100,11 +97,21 @@ public class PersonServiceImpl implements PersonService, CommandLineRunner {
         return modelMapper.map(person, PersonDto.class);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public Iterable<EmployeeDto> findEmployeeBySalary(int min, int max) {
         return personRepository.findBySalaryBetween(min, max)
                 .stream()
                 .map(p -> modelMapper.map(p, EmployeeDto.class))
+                .toList();
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public Iterable<ChildDto> findAllChildren() {
+        return personRepository.findAllChildren()
+                .stream()
+                .map(p -> modelMapper.map(p, ChildDto.class))
                 .toList();
     }
 

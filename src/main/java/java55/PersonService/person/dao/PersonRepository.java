@@ -24,6 +24,9 @@ public interface PersonRepository extends JpaRepository<Person, Integer> {
     @Query("SELECT p FROM Person p WHERE p.salary BETWEEN :min AND :max")
     Collection <Employee> findBySalaryBetween(@Param("min")int min, @Param("max")int max);
 
+    @Query("SELECT p FROM Person p WHERE TYPE(p) = Child")
+    Collection<Object> findAllChildren();
+
 //    select p.city, count(*) from person as p group by p.city;
 //    @Query("select new java55.PersonService.person.dto.CityPopulationDto(p.address.city, count(p)) " +
 //            "from Person as p group by p.address.city")

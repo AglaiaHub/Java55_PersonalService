@@ -19,4 +19,8 @@ public class Child extends Person {
         super(id, name, birthDate, address);
         this.kindergarden = kindergarden;
     }
+
+    public Child(String kindergarden) {
+        this.kindergarden = kindergarden;
+    }
 }

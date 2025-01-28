@@ -1,9 +1,6 @@
 package java55.PersonService.person.controller;
 
-import java55.PersonService.person.dto.AddressDto;
-import java55.PersonService.person.dto.CityPopulationDto;
-import java55.PersonService.person.dto.EmployeeDto;
-import java55.PersonService.person.dto.PersonDto;
+import java55.PersonService.person.dto.*;
 import java55.PersonService.person.service.PersonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -65,14 +62,16 @@ public class PersonController {
     public Iterable<EmployeeDto> findEmployeeBySalary (@PathVariable Integer min, @PathVariable Integer max){
         return personService.findEmployeeBySalary(min, max);
     }
-    //todo
-//    @GetMapping("/salary/{min}/{max}")
-//    public Iterable<EmployeeDto> findEmployeeBySalary ()
 
-//    @GetMapping("/children")
-    //    public Iterable<ChildDto> findAllChildren ()
+    @GetMapping("/children")
+    public Iterable<ChildDto> findAllChildren () {
+        return personService.findAllChildren ();
+    }
 
-    // postmanCollection добавить в корень, где pom-файл
+
+
+
+    //todo postmanCollection добавить в корень, где pom-файл
 
     //todo настроить getCityPopulation
 
