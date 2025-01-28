@@ -1,0 +1,1 @@
+select p.city, count(*) from person as p group by p.city;

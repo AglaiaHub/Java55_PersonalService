@@ -1,6 +1,7 @@
 package java55.PersonService.person.service;
 
 import java55.PersonService.person.dto.AddressDto;
+import java55.PersonService.person.dto.CityPopulationDto;
 import java55.PersonService.person.dto.PersonDto;
 
 public interface PersonService {
@@ -17,9 +18,10 @@ public interface PersonService {
 
     Iterable<PersonDto> findPersonsByName(String name);
 
-    Iterable<PersonDto> getCityPopulation(String city);
+    Iterable<CityPopulationDto> getCitiesPopulation();
 
     PersonDto updateAddress(Integer id, AddressDto adress);
 
     PersonDto removePersonById(Integer id);
+
 }

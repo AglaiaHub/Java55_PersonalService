@@ -14,5 +14,5 @@ import java.io.Serializable;
 public class Address implements Serializable {
     String city;
     String street;
-    String building;
+    int building;
 }

@@ -2,6 +2,8 @@ package java55.PersonService.person.controller;
 
 import jakarta.persistence.criteria.CriteriaBuilder;
 import java55.PersonService.person.dto.AddressDto;
+import java55.PersonService.person.dto.CityPopulationDto;
+import java55.PersonService.person.dto.EmployeeDto;
 import java55.PersonService.person.dto.PersonDto;
 import java55.PersonService.person.service.PersonService;
 import lombok.RequiredArgsConstructor;
@@ -44,9 +46,10 @@ public class PersonController {
         return personService.findPersonsByName(name);
     }
 
-    @GetMapping ("/population/{city}")
-    public Iterable<PersonDto> getCityPopulation(@PathVariable String city) {
-        return personService.getCityPopulation(city);
+    @GetMapping ("/population/city")
+    public Iterable<CityPopulationDto> getCityPopulation() {
+//        return personService.getCitiesPopulation();
+        return null;
     }
 
     @PutMapping ("/{id}/address")
@@ -58,4 +61,18 @@ public class PersonController {
     public PersonDto removePersonById(@PathVariable Integer id) {
         return personService.removePersonById(id);
     }
+
+    //todo
+//    @GetMapping("/salary/{min}/{max}")
+//    public Iterable<EmployeeDto> findEmployeeBySalary ()
+
+//    @GetMapping("/children")
+    //    public Iterable<ChildDto> findAllChildren ()
+
+    // postmanCollection добавить в корень, где pom-файл
+
+    //todo настроить getCityPopulation
+
+    //todo * настроить модель маппер в отдельный компонент, modelMapperConfig - чтобы не приходилось переписывать код с if
+    //todo * закрыть новые методы тестами. Только сервис - только бизнеслогику
 }
